@@ -1,30 +1,28 @@
-pipeline{
-	agent any
-	
-	stages{
-		stage('Compile Stage'){
-			steps{
-				withMaven(maven : 'maven-3.5.0'){
-					 bat 'mvn clean compile'
-					 echo 'compile'
-				}
-			  }
-		   }
-		stage('Testing Stage'){
-			steps{
-				withMaven(maven : 'maven-3.5.0'){
-					 bat 'mvn test'
-				}
-			  }
-		   }
-		stage('Deployment Stage'){
-			steps{
-				withMaven(maven : 'maven-3.5.0'){
-					 bat 'mvn deploy'
-				}
-			  }
-		   }
-	
-	    }
+pipeline {
+
+    agent any
+    tools {
+        maven 'maven-3.5.0' 
+    }
+    stages {
+        stage('Compile stage') {
+            steps {
+                bat "mvn clean compile" 
+        }
+    }
+
+         stage('testing stage') {
+             steps {
+                bat "mvn test"
+        }
+    }
+
+          stage('deployment stage') {
+              steps {
+                bat "mvn deploy"
+        }
+    }
+
+  }
 
 }
