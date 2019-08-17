@@ -4,22 +4,23 @@ pipeline{
 	stages{
 		stage('Compile Stage'){
 			steps{
-				maven(maven : 'Maven'){
-					 mvn clean compile
+				withMaven(maven : 'maven-3.5.0'){
+					 bat 'mvn clean compile'
+					 echo 'compile'
 				}
 			  }
 		   }
 		stage('Testing Stage'){
 			steps{
-				maven(maven : 'Maven'){
-					 mvn test
+				withMaven(maven : 'maven-3.5.0'){
+					 bat 'mvn test'
 				}
 			  }
 		   }
 		stage('Deployment Stage'){
 			steps{
-				maven(maven : 'Maven'){
-					 mvn deploy
+				withMaven(maven : 'maven-3.5.0'){
+					 bat 'mvn deploy'
 				}
 			  }
 		   }
