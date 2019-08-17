@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Compile stage') {
             steps {
-                bat "mvn -f 1.HelloWorld\HelloWorld-SB/pom.xml clean compile" 
+                bat "mvn -f 1.HelloWorld/HelloWorld-SB/pom.xml clean compile" 
         }
     }
 
