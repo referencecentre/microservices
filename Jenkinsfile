@@ -8,19 +8,19 @@ pipeline {
     stages {
         stage('Compile stage') {
             steps {
-                bat "mvn clean compile" 
+                bat "mvn -f 1.HelloWorld\HelloWorld-SB/pom.xml clean compile" 
         }
     }
 
          stage('testing stage') {
              steps {
-                bat "mvn test"
+                bat "mvn 1.HelloWorld/HelloWorld-SB/pom.xml test"
         }
     }
 
           stage('deployment stage') {
               steps {
-                bat "mvn deploy"
+                bat "mvn 1.HelloWorld\HelloWorld-SB/pom.xml deploy"
         }
     }
 
