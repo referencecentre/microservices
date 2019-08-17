@@ -12,15 +12,15 @@ pipeline {
         }
     }
 
-         stage('testing stage') {
+         stage('Testing stage') {
              steps {
-                bat "mvn ./1.HelloWorld/HelloWorld-SB/pom.xml test"
+                bat "mvn -f ./1.HelloWorld/HelloWorld-SB/pom.xml test"
         }
     }
 
-          stage('deployment stage') {
+          stage('Deployment stage') {
               steps {
-                bat "mvn ./1.HelloWorld/HelloWorld-SB/pom.xml deploy"
+                bat "mvn -f ./1.HelloWorld/HelloWorld-SB/pom.xml deploy"
         }
     }
 
