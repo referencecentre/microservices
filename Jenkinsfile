@@ -20,7 +20,7 @@ pipeline {
 
           stage('deployment stage') {
               steps {
-                bat "mvn 1.HelloWorld\HelloWorld-SB/pom.xml deploy"
+                bat "mvn 1.HelloWorld/HelloWorld-SB/pom.xml deploy"
         }
     }
 
