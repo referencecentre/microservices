@@ -4,21 +4,21 @@ pipeline{
 	stages{
 		stage('Compile Stage'){
 			steps{
-				withMaven(maven : 'Maven'){
+				maven(maven : 'Maven'){
 					 mvn clean compile
 				}
 			  }
 		   }
 		stage('Testing Stage'){
 			steps{
-				withMaven(maven : 'Maven'){
+				maven(maven : 'Maven'){
 					 mvn test
 				}
 			  }
 		   }
 		stage('Deployment Stage'){
 			steps{
-				withMaven(maven : 'Maven'){
+				maven(maven : 'Maven'){
 					 mvn deploy
 				}
 			  }
